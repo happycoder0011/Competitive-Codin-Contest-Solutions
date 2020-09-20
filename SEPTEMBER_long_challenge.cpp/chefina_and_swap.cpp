@@ -35,7 +35,7 @@ for(int i=0;i<t;i++)
     }
     int num[n];
     iota(num,num+n,1);
-        int d=0;
+        int d=1;
     for(int k=0;k<n;k++)
     {
         for(int m=k+1;m<n-1;m++)
