@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int> cop1,cop2;
+        cop1 = nums;
+        sort(cop1.begin(),cop1.end());
+       // auto iter = unique(cop1.begin(),cop1.end());
+        //cop1.erase(iter,cop1.end());
+       
+        for(int i=0;i<nums.size();i++)
+        {
+           auto it =  find(cop1.begin(),cop1.end(),nums[i]);
+           int x = it  - cop1.begin();
+            
+           cop2.push_back(x);
+        }
+        
+        return cop2;
+    }
+};
