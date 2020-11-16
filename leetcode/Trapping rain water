@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int trap(vector<int>& height) {
+            int n=height.size();
+            if(n>0){
+         int left[n],right[n];
+	    left[0] = height[0];
+	    for(int k=1;k<n;k++)
+	    {
+	        left[k] = max(height[k],left[k-1]);
+	    }
+	    right[n-1] = height[n-1];
+	    for(int k=n-2;k>=0;k--)
+	    {
+	        right[k] = max(height[k],right[k+1]);
+	    }
+	    int final[n];
+	    for(int k=0;k<n;k++)
+	    {
+	        final[k] = min(left[k],right[k]);
+	    }
+	    
+	    int sum =0;
+	    for(int k=0;k<n;k++)
+	    {
+	        sum += abs(final[k] - height[k]);
+	    }
+             return sum;}
+            else
+                    return 0;
+           
+    }
+};
