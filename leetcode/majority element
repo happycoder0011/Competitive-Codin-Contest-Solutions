@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int l = floor(nums.size()/2);
+        vector<int> copy;
+        copy = nums;
+        vector<int>::iterator ip;
+        
+        ip = unique(copy.begin(),copy.end());
+        copy.resize(distance(copy.begin(),ip));
+        
+        for(ip=copy.begin();ip!=copy.end();ip++)
+        {
+            int x =*ip;
+            int c = count(nums.begin(),nums.end(),x);
+            cout<<c;
+            if(c>l)
+            {
+                return x;
+            }
+        }
+        
+      return 0;
+    }
+};
