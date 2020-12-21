@@ -1,12 +1,32 @@
-#include <bits/stdc++.h>
+#include<iostream>
+#include<math.h>
 using namespace std;
-typedef unsigned long long int ulli;
-#define for(i,a,b) for(int i=a;i<b;i=i+2)
-
 int main()
 {
-ios::sync_with_stdio(0);
-cin.tie(0);
+long long t;
+cin>>t;
+for(long long i=0;i<t;i++)
+{
+    long long n,a,s,b,c,d,e,result,val;
 
-return 0;}
+    cin>>n;
+    cin>>a;
+    val = (long long)pow(10,n)-1;
+    s = a+ 2*val +2;
+    cout<<s<<endl;
+    cin>>b;
+    c=s -(a+b)-val-1;
+    cout<<c<<endl;
+    cin>>d;
+    e=s-(a+b+c+d);
+    cout<<e<<endl;
+    cin>>result;
+    if(result==-1)
+     exit(0);
+    fflush(stdin);
+}
 
+
+
+return 0;
+}
