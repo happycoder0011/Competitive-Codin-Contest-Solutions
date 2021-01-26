@@ -1,0 +1,43 @@
+class Solution {
+public:
+    int distance(int a,int b)
+    {
+         return pow(a,2)+pow(b,2);   
+    }
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int K) {
+        priority_queue<pair<int,pair<int,int>>> q;
+            for(int i=0;i<points.size();i++)
+            {
+                    if(q.size()<K)
+                    {
+                          q.push(make_pair(distance(points[i][0],points[i][1]),
+                                           make_pair(points[i][0],points[i][1])
+                                          )
+                                );   
+                    }
+                    else
+                    {
+                           
+                             q.push(make_pair(distance(points[i][0],points[i][1]),
+                                           make_pair(points[i][0],points[i][1])
+                                          )
+                                ); 
+                             q.pop();
+                    }
+            }
+            int i=0;
+            vector<vector<int>> ans;
+            
+            while(!q.empty())
+            {
+                  vector<int> part;
+                         part.push_back(q.top().second.first);
+                          part.push_back(q.top().second.second);
+                    ans.push_back(part);
+                      
+                    q.pop();
+            }
+        
+     return ans;       
+    }
+};
