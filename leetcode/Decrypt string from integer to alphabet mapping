@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string freqAlphabets(string s) {
+           
+         string ans = "";   
+       for(int i=0;i<s.length();i++)
+       {       if(i<s.length()-2){
+               if(s[i+2]=='#' )
+               {
+                       string p="";
+                       p += s[i];
+                       p += s[i+1];
+                       stringstream geek(p);
+                       int x=0;
+                       geek>>x;
+                       cout<<x;
+                       ans += (x+96);
+                       i=i+2;
+               }
+               else
+               {
+                      
+                       ans += (s[i]+48);
+               }}
+        else {
+                      
+                       ans += (s[i]+48);
+               }
+                
+       }
+            return ans;
+    }
+};
