@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool halvesAreAlike(string s) {
+        string vow ="aeiouAEIOU";
+            int i,l=0,r=0;
+            for( i=0;i<s.length()/2;i++)
+            {
+                    if(vow.find(s[i])!=string::npos)
+                            l++;
+            }
+            for(;i<s.length();i++)
+            {
+                 if(vow.find(s[i])!=string::npos)
+                            r++;    
+            }
+            if(l==r)
+                    return true;
+            else
+                    return false;
+    }
+};
