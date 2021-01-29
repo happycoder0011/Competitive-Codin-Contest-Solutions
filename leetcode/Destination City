@@ -1,0 +1,37 @@
+class Solution {
+public:
+    string destCity(vector<vector<string>>& paths) {
+      set<string> s,d;
+            for(int i=0;i<paths.size();i++)
+            {
+                    if(d.find(paths[i][0]) != d.end() )//agar milgaya
+                    {
+                              d.erase(paths[i][0]);
+                          
+                    }
+                    else
+                    {
+                       
+                            s.insert(paths[i][0]);   
+                    }
+                    
+                    if(s.find(paths[i][1]) != s.end())//agar milgaya
+                    {
+                            
+                            s.erase(paths[i][1]);
+                           
+                    }
+                    else
+                    {
+                            
+                            d.insert(paths[i][1]);
+                    }
+                    
+                    
+            }
+            auto it = d.end();
+            it--;
+            string ans =*it;
+            return   ans;
+    }
+};
