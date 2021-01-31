@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int suma(int n)
+    {
+            int ans=0;
+            while(n>0)
+            {
+                    ans+= n%10;
+                    n=n/10;
+            }
+            return ans;
+    }
+    int countBalls(int lowLimit, int highLimit) {
+            int a[46]={0};
+        for(int i=lowLimit;i<=highLimit;i++)
+        {
+                int x= suma(i);
+                a[x]++;
+        }
+            
+            sort(a,a+46,greater<int>());
+            return a[0];
+            
+    }
+};
