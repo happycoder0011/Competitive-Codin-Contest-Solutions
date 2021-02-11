@@ -1,0 +1,11 @@
+class Solution {
+public:
+    double average(vector<int>& salary) {
+       double ans =  accumulate(salary.begin(),salary.end(),0);
+            sort(salary.begin(),salary.end());
+            ans = ans - (salary[0] + salary[salary.size()-1]);
+            
+            double a = ans/(salary.size()-2);
+            return a;
+    }
+};

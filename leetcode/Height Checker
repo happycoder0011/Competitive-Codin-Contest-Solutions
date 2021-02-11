@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int heightChecker(vector<int>& heights) {
+        vector<int> co(heights);
+            sort(co.begin(),co.end());
+            int ans=0;
+            for(int i=0;i<heights.size();i++)
+            {
+                    cout<<co[i];
+                    if(co[i]!=heights[i])
+                            ans++;
+            }
+            return ans;
+    }
+};
