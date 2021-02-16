@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int countCharacters(vector<string>& words, string chars) {
+        map<char,int> charmp;
+            for(int i=0;i<chars.size();i++)
+            {
+                    charmp[chars[i]]++;
+            }
+            int ans=0;
+            for(int i=0;i<words.size();i++)
+            {
+                    map<char,int> wordmp;
+                    for(int j=0;j<words[i].size();j++)
+                    {
+                            wordmp[words[i][j]]++;
+                    }
+                    int j;
+                    for(j=0;j<words[i].size();j++ )
+                    {
+                            if(wordmp[words[i][j]]<=charmp[words[i][j]])
+                                continue;
+                            else
+                                 break;
+                    }
+                    if(j==words[i].size())
+                    {
+                            ans += words[i].size();
+                    }
+            }
+            return ans;
+            
+    }
+};
