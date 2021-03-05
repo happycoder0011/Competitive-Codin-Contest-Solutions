@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+      
+            bitset<32> xa(x),ya(y);
+            int ans=0;
+            for(int i=0;i<xa.size();i++)
+            {
+                    if(xa[i]!=ya[i])
+                            ans++;
+            }
+            
+            
+            return ans;
+    }
+};
