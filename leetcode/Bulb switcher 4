@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int minFlips(string target) {
+            int c=1,flag=0,m=0;
+           auto it = find(target.begin(), target.end(),'1') ;
+            if(it==target.end())
+                    return 0;
+        for(int i=find(target.begin(), target.end(),'1') 
+            - target.begin();i<target.length()-1;i++)
+        {  
+                if(target[i]!=target[i+1])
+                
+                {
+                        c++;
+                        
+                }
+                cout<<c;
+                        
+        }
+            return c;
+    }
+};
