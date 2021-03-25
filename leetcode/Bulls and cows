@@ -1,0 +1,31 @@
+class Solution {
+public:
+    string getHint(string secret, string guess) {
+        int n= secret.size();
+            vector<int> a(n,0);
+            
+            int b=0,c=0;
+            for(int i=0;i<n;i++)
+            {
+                    if(secret[i]==guess[i])
+                    {       b++;
+                     secret[i]='y';
+                     guess[i]='x';
+                    }
+                   
+                                    }
+            for(int i=0;i<n;i++)
+            {
+                if(find(secret.begin(),secret.end(),guess[i])!=secret.end())
+                            {
+                              c++ ;  
+                                    int m = find(secret.begin(),secret.end(),guess[i])-secret.begin();
+                                    cout<<m;
+                                     secret[m]='y';
+                                     guess[i]='x';
+                            }
+            }       
+          
+        return to_string(b)+"A"+to_string(c)+"B";    
+    }
+};
