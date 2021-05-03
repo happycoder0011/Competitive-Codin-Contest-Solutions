@@ -1,0 +1,64 @@
+class Solution {
+public:
+    map<int,list<int>> adjlist;
+     void addedge(int u,int v)
+    {
+        adjlist[v].push_back(u);
+    }
+    
+     void print()
+    {
+    for(auto obj1: adjlist)
+    {
+        cout<<obj1.first<<"->";
+        for(auto obj2: obj1.second)
+        {
+            cout<<obj2<<", ";
+        }
+        cout<<endl;
+    }
+    }
+    
+    void printvec(vector<int> v)
+    {
+        for(int i:v)
+        {
+            cout<<i<<" ";
+        }
+        cout<<endl;
+    }
+    
+   
+    void dfshelper(int node, int n,map<int,bool> &visited,vector<vector<int>> &ans,vector<int> temp)
+    {
+      
+        temp.push_back(node);
+        printvec(temp);
+        if(node==n-1)
+            ans.push_back(temp);
+        for(int j : adjlist[node])
+        {
+                dfshelper(j,n,visited,ans,temp);
+        }
+        
+        
+    }
+    
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        vector<vector<int>> ans;
+        int n = graph.size();
+        for(int i =0;i!=graph.size();i++)
+        {
+        for(int j=0;j<graph[i].size();j++)
+        {
+            addedge(graph[i][j],i);
+        }
+        }
+        vector<int> temp;
+        map<int,bool> visited;
+        
+        dfshelper(0,n,visited,ans,temp); 
+
+        return ans;
+    }
+};
