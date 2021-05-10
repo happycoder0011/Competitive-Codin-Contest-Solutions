@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int check(int n)
+    {
+        int m = n;
+        int a;
+        while(n)
+        {
+            a = n%10;
+            cout<<a;
+             n = n/10;
+            if(a==0)
+                return 0;
+            if(m%a==0)
+                continue;
+            else
+                return 0;
+            
+           
+        }
+        
+        return 1;
+    }
+    vector<int> selfDividingNumbers(int left, int right) {
+        
+        vector<int> ans;
+        for(int i=left;i<=right;i++)
+        {
+            if(check(i))
+                ans.push_back(i);
+        }
+        
+        return ans;
+    }
+};
