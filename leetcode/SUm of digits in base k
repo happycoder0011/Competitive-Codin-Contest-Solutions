@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int sumBase(int n, int k) {
+        int m=0,a,num=0;
+        while(n)
+        {
+            a=n%k;
+            num = num+pow(10,m)*(a);
+            m++;
+            n=n/k;
+        }
+        cout<<num;
+        int ans=0;
+        while(num)
+        {
+            ans += num%10;
+            num=num/10;
+        }
+        
+        return ans;
+    }
+};
