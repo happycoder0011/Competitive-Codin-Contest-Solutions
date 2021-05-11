@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int totalMoney(int n) {
+        int m = ceil((float)n/7);
+        int sum=0;
+        int z=0;
+        while(m)
+        {
+            if(n<7)
+            {
+                sum += ((n+z)*(n+z+1)/2) - (z*(z+1)/2);
+                n =n-7;
+            }
+            else
+            {
+               sum += ((7+z)*(8+z)/2) - (z*(z+1)/2);
+                n =n-7; 
+            }
+            
+            m--;
+            z++;
+        }
+        return sum;
+    }
+};
