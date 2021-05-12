@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int projectionArea(vector<vector<int>>& grid) {
+        
+            int m = grid.size();
+         
+            int sum=0;
+            for(vector<int> i: grid)
+            {
+                   sum += *max_element(i.begin(),i.end());
+            }
+            vector<int> val(m,INT_MIN);
+            for(int i=0;i<m;i++)
+            {
+                    for(int j=0;j<m;j++)
+                    {
+                            if(grid[i][j]!=0)
+                                    sum++;
+                            if(val[j]<grid[i][j])
+                                    val[j]=grid[i][j];
+                    }
+            }
+            cout<<sum;
+            cout<<accumulate(val.begin(),val.end(),sum);
+            sum = accumulate(val.begin(),val.end(),sum);
+            return sum;
+    }
+};
