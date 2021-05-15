@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int addDigits(int num) {
+        int m =num;
+        int sum = 0;
+        while(num/10>0)
+        {
+             m =num;
+             sum=0;
+            while(m>0)
+            {
+                sum += m%10;
+                m = m/10;
+            }
+            cout<<sum<<endl;
+            num=sum;
+        }
+        
+     return num;   
+    }
+};
